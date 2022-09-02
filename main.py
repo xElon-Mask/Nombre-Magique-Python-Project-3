@@ -1,6 +1,9 @@
+import random
+
+
 NOMBRE_MIN = 1
 NOMBRE_MAX = 10
-NOMBRE_MAGIQUE = 5
+NOMBRE_MAGIQUE = random.randint(NOMBRE_MIN, NOMBRE_MAX)
 
 # exo 1 : ecrire la fonction pour demander à l'utilisateur le nombre magique
 
