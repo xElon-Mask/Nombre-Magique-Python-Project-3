@@ -4,6 +4,9 @@ import random
 NOMBRE_MIN = 1
 NOMBRE_MAX = 10
 NOMBRE_MAGIQUE = random.randint(NOMBRE_MIN, NOMBRE_MAX)
+NOMBRE_VIES = 4
+
+vies = NOMBRE_VIES
 
 # exo 1 : ecrire la fonction pour demander à l'utilisateur le nombre magique
 
@@ -35,16 +38,21 @@ def demander_nombre(nb_min, nb_max):
 # exo 3 : Il faut demander plusieurs fois à l'utilisateur de demander le nombre magique, tant qu'il n'a pas réussi à trouver le nombre magique
 
 nb_devine = 0
-while not nb_devine == NOMBRE_MAGIQUE:
+while not nb_devine == NOMBRE_MAGIQUE and not vies == 0:
+    print(f"vous reste {vies} vies")
     nb_devine = demander_nombre(NOMBRE_MIN, NOMBRE_MAX)
     if nb_devine == NOMBRE_MAGIQUE:
         print("Bravo, vous avez gagné !")
     elif nb_devine < NOMBRE_MAGIQUE:
         print("Le nombre magique est plus grand")
+        vies -= 1
     else:
         print("Le nombre magique est plus petit")
-
-
+        vies -= 1
+        
+        
+if vies == 0:
+    print(f"Vous avez perdu ! Le nombre magique était {NOMBRE_MAGIQUE}")
 
 
 
