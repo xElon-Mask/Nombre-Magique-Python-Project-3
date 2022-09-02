@@ -13,6 +13,10 @@ def demander_nombre(nb_min, nb_max):
             nb_demande_convert = int(nb_demande)       
         except:
             print("ERREUR :Vous devez rentrer un chiffre. Réessayez !")
+        else:
+            if nb_demande_convert < nb_min or nb_demande_convert > nb_max:
+                print(f"ERREUR: Le nombre doit être entre {nb_min} et {nb_max}. Réessayez.")
+                nb_demande_convert = 0
         # return int
     return nb_demande_convert
     
