@@ -6,21 +6,40 @@ NOMBRE_MAGIQUE = 5
 
 def demander_nombre(nb_min, nb_max):
     # quel est le nombre magique (entre 1 et 10)
-    nb_demande = int(input(f"Quel est le nombre magique (entre {NOMBRE_MIN} et {NOMBRE_MAX}) ?"))
-    # return int
-    return nb_demande
+    nb_demande_convert = 0
+    while nb_demande_convert == 0:
+        nb_demande = input(f"Quel est le nombre magique (entre {NOMBRE_MIN} et {NOMBRE_MAX}) ?")
+        try:
+            nb_demande_convert = int(nb_demande)       
+        except:
+            print("ERREUR :Vous devez rentrer un chiffre. Réessayez !")
+        # return int
+    return nb_demande_convert
+    
     
 
-nb_devine = demander_nombre(NOMBRE_MIN, NOMBRE_MAX)
+#nb_devine = demander_nombre(NOMBRE_MIN, NOMBRE_MAX)
 
 # exo 2 : comparer le nombre demandé au nombre magique
 # le nombre magique est plus petit
 # le nombre magique est plus grand
 # Bravo, vous avez trouvé !
 
-if nb_devine == NOMBRE_MAGIQUE:
-    print("Bravo, vous avez gagné !")
-elif nb_devine < NOMBRE_MAGIQUE:
-    print("Le nombre magique est plus grand")
-else:
-    print("Le nombre magique est plus petit")
+# exo 3 : Il faut demander plusieurs fois à l'utilisateur de demander le nombre magique, tant qu'il n'a pas réussi à trouver le nombre magique
+
+nb_devine = 0
+while not nb_devine == NOMBRE_MAGIQUE:
+    nb_devine = demander_nombre(NOMBRE_MIN, NOMBRE_MAX)
+    if nb_devine == NOMBRE_MAGIQUE:
+        print("Bravo, vous avez gagné !")
+    elif nb_devine < NOMBRE_MAGIQUE:
+        print("Le nombre magique est plus grand")
+    else:
+        print("Le nombre magique est plus petit")
+
+
+
+
+
+
+
